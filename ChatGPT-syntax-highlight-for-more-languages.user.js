@@ -3,6 +3,8 @@
 // @namespace    http://tampermonkey.net/
 // @version      2024-06-29
 // @description  With this script, more languages will be syntax higlighted in the ChatGPT chat
+// @downloadURL  https://github.com/UnicodeError0041/ChatGPT-syntax-highlight-for-more-languages-userscript/raw/main/ChatGPT-syntax-highlight-for-more-languages.user.js
+// @updateURL    https://github.com/UnicodeError0041/ChatGPT-syntax-highlight-for-more-languages-userscript/raw/main/ChatGPT-syntax-highlight-for-more-languages.user.js
 // @author       UnicodeError0041
 // @match        https://chatgpt.com/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=chatgpt.com
