@@ -6,7 +6,7 @@ With this script, more languages will be syntax highlighted in the ChatGPT web a
 
 ## Supported languages
 
-This script supports [all languages from highloght.js](https://github.com/highlightjs/highlight.js/blob/main/SUPPORTED_LANGUAGES.md), except the languages in 3rd party repos.
+This script supports [all languages from highlight.js](https://github.com/highlightjs/highlight.js/blob/main/SUPPORTED_LANGUAGES.md), except the languages in 3rd party repos.
 
 Some of the languages in this list are 3rd party languages and this script only supports a few of them (these are listed in the [Acknowledgements](#acknowledgements) section). But in theory, all non-3rd party languages from the list should appear correctly (which are the most commonly used ones).
 
