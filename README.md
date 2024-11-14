@@ -2,15 +2,17 @@
 
 [![Add to tampermonkey](https://img.shields.io/badge/add%20to-tampermonkey-green)](https://github.com/UnicodeError0041/ChatGPT-syntax-highlight-for-more-languages-userscript/raw/main/ChatGPT-syntax-highlight-for-more-languages.user.js)
 
-With this script, more languages will be syntax highlighted in the ChatGPT web app. This script uses [highlight.js](https://github.com/highlightjs/highlight.js) to highlight text in the chat.
+With this script, more languages will be syntax highlighted in the ChatGPT web app.
 
 ## Supported languages
 
-This script supports [all languages from highlight.js](https://github.com/highlightjs/highlight.js/blob/main/SUPPORTED_LANGUAGES.md), except the languages in 3rd party repos.
+This script uses the [highlight.js](https://github.com/highlightjs/highlight.js) library to highlight code syntax. It supports:
 
-Some of the languages in this list are 3rd party languages and this script only supports a few of them (these are listed in the [Acknowledgements](#acknowledgements) section). But in theory, all non-3rd party languages from the list should appear correctly (which are the most commonly used ones).
+1. Core highlight.js languages: Languages included directly in the main highlight.js package (like Python, JavaScript, and HTML). [Here](https://github.com/highlightjs/highlight.js/blob/main/SUPPORTED_LANGUAGES.md) is a list of supported languages.
 
-> 📃 **Note:** The code will only be highlighted after chatGPT finished it's response.
+2. Additional highlight.js community-supported languages: These are separate, third-party modules maintained by the community and loaded dynamically as needed (listed in the [Acknowledgements](#acknowledgements) section).
+
+> 📃 **Note:** The code will only be highlighted after ChatGPT finished it's response.
 
 > 📃 **Note:** This script does not load in every syntax rule instantly. Most of them will only load when needed.
 
@@ -19,13 +21,11 @@ Some of the languages in this list are 3rd party languages and this script only 
 1. Install the [TamperMonkey](https://tampermonkey.net) extension for your browser.
 2. Download the script by clicking [here](https://github.com/UnicodeError0041/ChatGPT-syntax-highlight-for-more-languages-userscript/raw/main/ChatGPT-syntax-highlight-for-more-languages.user.js).
 
-## 3rd party languages
+## Disable Additional Languages
 
-> 📃 **Note:** By third party languages I refer to the languages not bundled with the core [highlight.js](https://github.com/highlightjs/highlight.js) library.
+If you prefer not to load the additional community-supported languages, you can disable this feature by setting the `ALLOW_THIRD_PARTY_LANGUAGE_HIGHLIGHTS` constant at the top of the script to `false`.
 
-Support of third-party languages can be disabled, by setting the `ALLOW_THIRD_PARTY_LANGUAGE_HIGHLIGHTS` constant at the top of the script to `false`.
-
-This way only languages of the core [highlight.js](https://github.com/highlightjs/highlight.js) library will be highlighted.
+This will restrict syntax highlighting to only the core languages bundled with highlight.js.
 
 ## Adding languages
 
