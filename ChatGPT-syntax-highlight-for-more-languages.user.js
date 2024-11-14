@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         ChatGPT syntax highlight for more languages
 // @namespace    http://tampermonkey.net/
-// @version      2024-06-29
+// @version      2024-11-14
 // @description  With this script, more languages will be syntax higlighted in the ChatGPT chat
 // @downloadURL  https://github.com/UnicodeError0041/ChatGPT-syntax-highlight-for-more-languages-userscript/raw/main/ChatGPT-syntax-highlight-for-more-languages.user.js
 // @updateURL    https://github.com/UnicodeError0041/ChatGPT-syntax-highlight-for-more-languages-userscript/raw/main/ChatGPT-syntax-highlight-for-more-languages.user.js
@@ -20,7 +20,10 @@
  * sources for specific syntax rules can be seen in the getImportLink function
  */
 
-const ALLOW_THIRD_PARTY_LANGUAGE_HIGHLIGHTS = true;
+const ALLOW_COMMUNITY_SUPPORTED_LANGUAGE_HIGHLIGHTS = true;
+
+const SEND_BUTTON_SELECTOR =
+    "[data-testid|='send-button'], [data-testid='stop-button']"; // We don't want to attempt highlighting codeblocks until chatGPT has finished writing them
 
 (function () {
     "use strict";
@@ -30,7 +33,7 @@ const ALLOW_THIRD_PARTY_LANGUAGE_HIGHLIGHTS = true;
     unsafeWindow.hljs = hljs;
 
     function getImportLink(langName) {
-        if (!ALLOW_THIRD_PARTY_LANGUAGE_HIGHLIGHTS) {
+        if (!ALLOW_COMMUNITY_SUPPORTED_LANGUAGE_HIGHLIGHTS) {
             return `https://unpkg.com/@highlightjs/cdn-assets@11.9.0/languages/${langName}.min.js`;
         }
         let link;
@@ -138,8 +141,8 @@ const ALLOW_THIRD_PARTY_LANGUAGE_HIGHLIGHTS = true;
 
     function isTyping() {
         return (
-            document.querySelector("[data-testid|='fruitjuice']").dataset
-                .testid === "fruitjuice-stop-button"
+            document.querySelector(SEND_BUTTON_SELECTOR).dataset.testid ===
+            "stop-button"
         );
     }
 
@@ -209,7 +212,7 @@ const ALLOW_THIRD_PARTY_LANGUAGE_HIGHLIGHTS = true;
         if (!isTyping()) {
             highlightCode();
         }
-    }).observe(document.querySelector("[data-testid|='fruitjuice']"), {
+    }).observe(document.querySelector(SEND_BUTTON_SELECTOR), {
         attributes: true,
     });
 })();
